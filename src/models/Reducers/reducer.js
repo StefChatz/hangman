@@ -1,21 +1,24 @@
+import {STORE_WORD} from '../actionTypes'
 import {combineReducers} from "redux";
 
-const initialState =
+const initialState = {
+  word: '',
+}
 
-    {
-        wrongLetters: 0,
-        correctLetters: 0,
-    }
-// export const WordReducer = (state = initialState, action) => {
-//     switch (action.type) {
-//         // case :
-//         //     return {
-//         //
-//         //     }
-//     }
-// }
+const wordReducer = (state = initialState, action) => {
+  console.log('?>?>', action)
+  
+  switch (action.type) {
+    case STORE_WORD:
+      return {word: action.payload};
+    default:
+      return state;
+  }
+}
+
 const rootReducer = combineReducers({
-
+  wordReducer
 });
 
+export {initialState, wordReducer};
 export default rootReducer;
